@@ -34,14 +34,21 @@ Python还支持运算次序，因此你可在同一个表达式中使用多种�
 在Python中，用方括号（[]）来表示列表，并用逗号来分隔其中的元素。<br>
 Python为访问最后一个列表元素提供了一种特殊语法。通过将索引指定为-1，可让Python返回最后一个列表元素。<br>
 - 在列表末尾添加元素<br>
-    `el.append('element')`
+    `LIST.append('element')`
 - 在列表中插入元素<br>
-    `el.insert( INDEX_NUM, 'element')`
+    `LIST.insert( INDEX_NUM, 'element')`
 - 使用del语句删除元素<br>
-    `del el[INDEX_NUM]`
+    `del LIST[INDEX_NUM]`
 - 使用方法pop()删除元素<br>
-    > - 方法pop()可删除列表末尾的元素，并让你能够接着使用它。<br> `el.pop()`
-    > - 方法pop()可括号中指定要删除的元素的索引。<br> `el.pop(INDEX_NUM)`
+    > - 方法pop()可删除列表末尾的元素，并让你能够接着使用它。<br> `LIST.pop()`
+    > - 方法pop()可括号中指定要删除的元素的索引。<br> `LIST.pop(INDEX_NUM)`
 - 根据值删除元素<br>
-    `el.remove('element')`
+    `LIST.remove('element')`
     >注意:方法remove()只删除第一个指定的值。如果要删除的值可能在列表中出现多次，就需要使用循环来判断是否删除了所有这样的值。
+
+### 列表排序
+- 永久排序  `LIST.sort()`
+    按字母反向排序 `LIST.sort(reverse=True)`
+- 临时排序  `sorted(LIST)` 
+    反向排序 `sorted(LIST,reverse=True)`
+- 列表反转排序  `LIST.reverse()`
