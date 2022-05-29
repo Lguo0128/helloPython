@@ -52,3 +52,7 @@ Python为访问最后一个列表元素提供了一种特殊语法。通过将�
 - 临时排序  `sorted(LIST)` 
     反向排序 `sorted(LIST,reverse=True)`
 - 列表反转排序  `LIST.reverse()`
+
+### 操作列表
+- for循环   ` for element in LIST:`
+
