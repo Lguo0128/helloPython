@@ -19,10 +19,10 @@ https://www.python.org/downloads/release/python-3913/
 
 https://docs.python.org/3.9/
 
-|Python version |Maintenance status |First released |End of support |Release schedule|
-|:----:|:----:|:----:|:----:|:----:|
-|3.10 |bugfix |2021-10-04 |2026-10 |PEP 619|
-|3.9 |security |2020-10-05 |2025-10 |PEP 596|
-|3.8 |security |2019-10-14 |2024-10 |PEP 569|
-|3.7 |security |2018-06-27 |2023-06-27 |PEP 537|
-|2.7 |end-of-life |2010-07-03 |2020-01-01 |PEP 373|
+| Python version | Maintenance status | First released | End of support | Release schedule |
+| :------------: | :----------------: | :------------: | :------------: | :--------------: |
+|      3.10      |       bugfix       |   2021-10-04   |    2026-10     |     PEP 619      |
+|      3.9       |      security      |   2020-10-05   |    2025-10     |     PEP 596      |
+|      3.8       |      security      |   2019-10-14   |    2024-10     |     PEP 569      |
+|      3.7       |      security      |   2018-06-27   |   2023-06-27   |     PEP 537      |
+|      2.7       |    end-of-life     |   2010-07-03   |   2020-01-01   |     PEP 373      |

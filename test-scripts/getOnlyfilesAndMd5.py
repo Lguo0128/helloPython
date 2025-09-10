@@ -8,19 +8,21 @@ import hashlib
 filePath = r'k:\backups\1.209'
 # print(os.listdir(filePath))
 
+
 def get_file_md5(fname):
-    m = hashlib.md5()   #创建md5对象
-    with open(fname,'rb') as fobj:
+    m = hashlib.md5()  # 创建md5对象
+    with open(fname, 'rb') as fobj:
         while True:
             data = fobj.read(4096)
             if not data:
                 break
-            m.update(data)  #更新md5对象
+            m.update(data)  # 更新md5对象
 
-    return m.hexdigest()    #返回md5对象
+    return m.hexdigest()  # 返回md5对象
 
 # reload(sys)
 # sys.setdefaultencoding('utf-8')
+
 
 for root, dirs, files in os.walk(filePath):
     # print(root,dirs,files)
