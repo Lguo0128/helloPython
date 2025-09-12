@@ -8,9 +8,9 @@
 #  详细研究实际结果，直到你明白了它为何为True或False。
 #  创建至少10个测试，且其中结果分别为True和False的测试都至少有5个。
 
-name = 'Linda'
+name = "Linda"
 print("Is name == 'Linda'? I predict True.")
-print(name == 'Linda')
+print(name == "Linda")
 
 print("\nIs name == 'Sam'? I predict False.")
-print(name == 'Sam')
+print(name == "Sam")

@@ -4,7 +4,7 @@
 #  编写5条if语句，每条都检查某种水果是否包含在列表中，如果包含在列表中，
 # 就打印一条消息，如“You really like bananas!”。
 
-favorite_fruits = ['mango', 'strawberry', 'water melon', 'banana']
+favorite_fruits = ["mango", "strawberry", "water melon", "banana"]
 
-if 'mango' in favorite_fruits:
+if "mango" in favorite_fruits:
     print("You really like mango!")

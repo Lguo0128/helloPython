@@ -2,7 +2,7 @@
 # 多种通勤方式的列表。根据该列表打印一系列有关这些通勤方式的宣言，如“I would like
 # to own a Honda motorcycle”。
 
-trafficWays = ['car', 'motocycle', 'bike']
+trafficWays = ["car", "motocycle", "bike"]
 
 for ways in trafficWays:
-    print('I would like to own a ' + ways + '.')
+    print("I would like to own a " + ways + ".")

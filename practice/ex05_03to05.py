@@ -5,29 +5,29 @@
 #  编写这个程序的两个版本，在一个版本中上述测试通过了，而在另一个版本中
 # 未通过（未通过测试时没有输出）。
 
-# 5-4 外星人颜色#2：像练习5-3那样设置外星人的颜色，并编写一个if-else结构。 
+# 5-4 外星人颜色#2：像练习5-3那样设置外星人的颜色，并编写一个if-else结构。
 #  如果外星人是绿色的，就打印一条消息，指出玩家因射杀该外星人获得了 5个
-# 点。 
-#  如果外星人不是绿色的，就打印一条消息，指出玩家获得了10个点。 
+# 点。
+#  如果外星人不是绿色的，就打印一条消息，指出玩家获得了10个点。
 #  编写这个程序的两个版本，在一个版本中执行if代码块，而在另一个版本中执
 # 行else代码块。
 
-# 5-5 外星人颜色#3：将练习5-4中的if-else结构改为if-elif-else结构。 
-#  如果外星人是绿色的，就打印一条消息，指出玩家获得了5个点。 
-#  如果外星人是黄色的，就打印一条消息，指出玩家获得了10个点。 
-#  如果外星人是红色的，就打印一条消息，指出玩家获得了15个点。 
+# 5-5 外星人颜色#3：将练习5-4中的if-else结构改为if-elif-else结构。
+#  如果外星人是绿色的，就打印一条消息，指出玩家获得了5个点。
+#  如果外星人是黄色的，就打印一条消息，指出玩家获得了10个点。
+#  如果外星人是红色的，就打印一条消息，指出玩家获得了15个点。
 #  编写这个程序的三个版本，它们分别在外星人为绿色、黄色和红色时打印一条
-# 消息。 
+# 消息。
 
 
-alien_color = ['green', 'yellow', 'red','gray']
+alien_color = ["green", "yellow", "red", "gray"]
 
 for alien in alien_color:
-    if alien =='green':
-        print('Green: 5 Points!')
-    elif alien =='yellow':
-        print('Yellow: 10 Points!')
-    elif alien =='red':
-        print('Red: 15 Points')
+    if alien == "green":
+        print("Green: 5 Points!")
+    elif alien == "yellow":
+        print("Yellow: 10 Points!")
+    elif alien == "red":
+        print("Red: 15 Points")
     else:
-        print('Not Green or Yellow or Red.')
+        print("Not Green or Yellow or Red.")

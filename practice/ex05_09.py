@@ -5,14 +5,14 @@
 
 import random
 
-userList = ['admin', 'guoyifen', 'Linda', 'Ryan', 'James']
+userList = ["admin", "guoyifen", "Linda", "Ryan", "James"]
 
 id = random.randint(0, 4)
 if userList:
-    if userList[id] == 'admin':
+    if userList[id] == "admin":
         print("Hello admin, would you like to see a status report?")
     else:
-        print("Hello " + userList[id]+", thank you for logging in again")
+        print("Hello " + userList[id] + ", thank you for logging in again")
 else:
     print("We need to find some users!")
 
@@ -20,9 +20,9 @@ else:
 userList = []
 
 if userList:
-    if userList[id] == 'admin':
+    if userList[id] == "admin":
         print("Hello admin, would you like to see a status report?")
     else:
-        print("Hello " + userList[id]+", thank you for logging in again")
+        print("Hello " + userList[id] + ", thank you for logging in again")
 else:
     print("We need to find some users!")

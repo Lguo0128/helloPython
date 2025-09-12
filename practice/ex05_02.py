@@ -8,9 +8,9 @@
 #  测试特定的值是否包含在列表中。
 #  测试特定的值是否未包含在列表中。
 
-strA = 'Good'
-strB = 'Bad'
-strC = 'good'
+strA = "Good"
+strB = "Bad"
+strC = "good"
 
 print(strA.lower() == strC)
 print(strA == strB)
@@ -20,8 +20,8 @@ num1 = 900128
 num2 = 890221
 print(num1 >= num2)
 
-listA = ['apple', 'pear', 'banana']
-fruit = 'apple'
+listA = ["apple", "pear", "banana"]
+fruit = "apple"
 if fruit in listA:
     print("listA true: " + fruit)
 else:

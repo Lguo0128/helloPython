@@ -9,7 +9,7 @@
 #  确保比较时不区分大消息；换句话说，如果用户名'John'已被使用，应拒绝用户
 # 名'JOHN'。
 
-current_users = ['Adam', 'betty', 'carl', 'david', 'eric']
+current_users = ["Adam", "betty", "carl", "david", "eric"]
 
 lower_current_users = []
 for user in current_users:
@@ -18,7 +18,7 @@ for user in current_users:
 lower_current_users1 = [user.lower() for user in current_users]
 print(lower_current_users1)
 
-new_users = ['adam', 'Eric', 'ford', 'george', 'helen']
+new_users = ["adam", "Eric", "ford", "george", "helen"]
 
 
 for name in new_users:

@@ -10,24 +10,24 @@
 #  使用 sort()修改该列表，使其元素按字母顺序排列。打印该列表，核实排列顺序确实变了。
 #  使用 sort()修改该列表，使其元素按与字母顺序相反的顺序排列。打印该列表，核实排列顺序确实变了。
 
-places = ['tokyo', 'singapore', 'beijing', 'kyoto', 'washington', 'new zeland']
+places = ["tokyo", "singapore", "beijing", "kyoto", "washington", "new zeland"]
 
-print('Orignal List: ' + str(places))
+print("Orignal List: " + str(places))
 
-print('Sorted List: ' + str(sorted(places)))
-print('List status: ' + str(places))
+print("Sorted List: " + str(sorted(places)))
+print("List status: " + str(places))
 
-print('Reversed sorted List: ' + str(sorted(places, reverse=True)))
-print('List status: ' + str(places))
+print("Reversed sorted List: " + str(sorted(places, reverse=True)))
+print("List status: " + str(places))
 
-print('Reversed List: ' + str(places.reverse()))
-print('List status: ' + str(places))
+print("Reversed List: " + str(places.reverse()))
+print("List status: " + str(places))
 
-print('Reversed again the List: ' + str(places.reverse()))
-print('List status: ' + str(places))
+print("Reversed again the List: " + str(places.reverse()))
+print("List status: " + str(places))
 
-print('Sort the List: ' + str(places.sort()))
-print('List status: ' + str(places))
+print("Sort the List: " + str(places.sort()))
+print("List status: " + str(places))
 
-print('Reversed Sort the List: ' + str(places.sort(reverse=True)))
-print('List status: ' + str(places))
+print("Reversed Sort the List: " + str(places.sort(reverse=True)))
+print("List status: " + str(places))

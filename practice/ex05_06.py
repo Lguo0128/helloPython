@@ -11,14 +11,14 @@ import random
 age = random.randint(0, 100)
 
 if age < 2:
-    print('Age: ' + str(age)+'. 年龄小于2岁. 他是婴儿!')
+    print("Age: " + str(age) + ". 年龄小于2岁. 他是婴儿!")
 elif age < 4:
-    print('Age: ' + str(age)+'. 年龄为2（含）～4岁. 他正蹒跚学步!')
+    print("Age: " + str(age) + ". 年龄为2（含）～4岁. 他正蹒跚学步!")
 elif age < 13:
-    print('Age: ' + str(age)+'. 年龄为4（含）～13岁. 他是儿童!')
+    print("Age: " + str(age) + ". 年龄为4（含）～13岁. 他是儿童!")
 elif age < 20:
-    print('Age: ' + str(age)+'. 年龄为13（含）～20岁. 他是青少年!')
+    print("Age: " + str(age) + ". 年龄为13（含）～20岁. 他是青少年!")
 elif age < 65:
-    print('Age: ' + str(age)+'. 年龄为20（含）～65岁. 他是成年人!')
+    print("Age: " + str(age) + ". 年龄为20（含）～65岁. 他是成年人!")
 else:
-    print('Age: ' + str(age)+'. 年龄超过65（含）岁. 他是老年人!')
+    print("Age: " + str(age) + ". 年龄超过65（含）岁. 他是老年人!")

@@ -3,15 +3,14 @@
 # 修改嘉宾名单，将无法赴约的嘉宾的姓名替换为新邀请的嘉宾的姓名。
 # 再次打印一系列消息，向名单中的每位嘉宾发出邀请。。
 
-invites = ['alan liu', 'betty Liang', 'carl tan',
-           'derk  ma', 'eric chen', 'fancy Ou']
+invites = ["alan liu", "betty Liang", "carl tan", "derk  ma", "eric chen", "fancy Ou"]
 
 for person in invites:
-    print(person.title() + ',do you have time?')
+    print(person.title() + ",do you have time?")
 
-print('\n\t'+invites[3].title() + ' isn\'t free at that time')
+print("\n\t" + invites[3].title() + " isn't free at that time")
 
-invites[3] = 'gerk bo'
+invites[3] = "gerk bo"
 
 for person in invites:
-    print(person.title() + ',do you have time?')
+    print(person.title() + ",do you have time?")
