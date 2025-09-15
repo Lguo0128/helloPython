@@ -9,4 +9,3 @@ if people >= 8:
     print("没有空桌")
 else:
     print("有空桌")
-
