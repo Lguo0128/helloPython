@@ -333,3 +333,35 @@ greet_users(usernames)
     - `def function_name(parameter_0, parameter_1='default value')`
   - 对于函数调用中的关键字实参，也应遵循这种约定
     - `function_name(value_0, parameter_1='value')`
+
+# 类
+
+## 创建和使用类
+
+```
+class Dog(): 
+    """一次模拟小狗的简单尝试"""   
+   
+    def __init__(self, name, age): 
+        """初始化属性name和age""" 
+        self.name = name 
+        self.age = age 
+         
+    def sit(self): 
+        """模拟小狗被命令时蹲下""" 
+        print(self.name.title() + " is now sitting.") 
+ 
+    def roll_over(self): 
+        """模拟小狗被命令时打滚""" 
+        print(self.name.title() + " rolled over!")
+```
+
+- 类中的函数称为方法;
+- 方法__init__()是一个特殊的方法，每当你根据Dog类创建新实例时，Python都会自动运行它。在这个方法的名称中，开头和末尾各有两个下划线，这是一种约定，旨在避免Python默认方法与普通方法发生名称冲突。
+  - 为何必须在方法定义中包含形参self呢？因为Python调用这个__init__()方法来创建Dog实例时，将自动传入实参self。每个与类相关联的方法调用都自动传递实参self，它是一个指向实例本身的引用，让实例能够访问类中的属性和方法。
+- 以self为前缀的变量都可供类中的所有方法使用，我们还可以通过类的任何实例来访问这些变量。像这样可通过实例访问的变量称为属性。
+- 方法__init__()并未显式地包含return语句，但Python自动返回一个表示这条小狗的实例。
+  - *我们通常可以认为首字母大写的名称（如Dog）指的是类，而小写的名称（如my_dog）指的是根据类创建的实例。*
+  - 访问属性: 可使用句点表示法。
+  - 调用方法: 使用句点表示法来调用Dog类中定义的任何方法。
+  - 创建多个实例: 可按需求根据一个类创建任意数量的实例，条件是将每个实例都存储在不同的变量中，或占用列表或字典的不同位置。

@@ -1,0 +1,35 @@
+# 9-3 用户：创建一个名为User 的类，其中包含属性first_name 和last_name，还有
+# 用户简介通常会存储的其他几个属性。在类User 中定义一个名为describe_user()的方
+# 法，它打印用户信息摘要；再定义一个名为greet_user()的方法，它向用户发出个性化
+# 的问候。
+# 创建多个表示不同用户的实例，并对每个实例都调用上述两个方法。
+
+
+class User:
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+
+    def describe_user(self):
+        """打印用户信息摘要"""
+        print("First name is: " + self.first_name)
+        print("Last name is: " + self.last_name)
+
+    def greet_user(self):
+        """向用户发出个性化的问候"""
+        full_name = self.first_name.title() + " " + self.last_name.title()
+        print("Hello, " + full_name)
+
+
+user_1 = User("james", "guo")
+user_2 = User("ryan", "smith")
+user_3 = User("zorah", "Lee")
+
+user_1.describe_user()
+user_1.greet_user()
+
+user_2.describe_user()
+user_2.greet_user()
+
+user_3.describe_user()
+user_3.greet_user()
