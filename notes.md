@@ -416,9 +416,55 @@ if __name__ == "__main__":
 # Python标准库
 
 - Python标准库是一组模块，安装的Python都包含它。
-- 要创建字典并记录其中的键—值对的添加顺序，可使用模块collections中的OrderedDict类。
+- 要创建字典并记录其中的键—值对的添加顺序，可使用模块`collections`中的`OrderedDict`类。
 
 ``` python
 from collections import OrderedDict
 favorite_languages = OrderedDict()
 ```
+
+# 文件与异常
+
+## 读取整个文件
+
+``` python
+filename = 'pi_digits.txt'
+
+with open(filename) as file_object:
+    lines = file_object.readlines()
+
+for line in lines:
+    print(line.rstrip())
+```
+
+- 函数`open()`接受一个参数：要打开的文件的名称。
+  - Python在当前执行的文件所在的目录中查找指定的文件。
+- 函数`open()`返回一个表示文件的对象。
+- 关键字`with`在不再需要访问文件后将其关闭。
+- 使用方法`read()`读取这个文件的全部内容，并将其作为一个长长的字符串存储在变量contents中。
+- 因为`read()`到达文件末尾时返回一个空字符串，而将这个空字符串显示出来时就是一个空行。要删除多出来的空行，可在`print`语句中使用`rstrip()`
+
+## 文件路径
+
+- 要让Python打开不与程序文件位于同一个目录中的文件，需要提供文件路径，它让Python到系统的特定位置去查找。
+- `相对文件路径`让Python到指定的位置去查找，而该位置是相对于当前运行的程序所在目录的。
+  - 在Linux和OS X中，你可以这样编写代码: `with open('text_files/filename.txt') as file_object:`
+  - 在Windows系统中，在文件路径中使用反斜杠（\）而不是斜杠（/）: `with open('text_files\filename.txt') as file_object:`
+- `绝对路径`通常比`相对路径`更长，因此将其存储在一个变量中，再将该变量传递给open()会有所帮助。
+  - 在Linux和OS X中，你可以这样编写代码:
+
+  ``` python
+  file_path = '/home/ehmatthes/other_files/text_files/filename.txt' 
+  with open(file_path) as file_object: 
+  ```
+
+  - 在Windows系统中，在文件路径中使用反斜杠（\）而不是斜杠（/）:
+
+  ``` python
+  file_path = 'C:\Users\ehmatthes\other_files\text_files\filename.txt' 
+  with open(file_path) as file_object: 
+  ```
+
+## 逐行读取
+
+- 要以每次一行的方式检查文件，可对文件对象使用for循环
