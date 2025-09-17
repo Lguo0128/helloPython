@@ -1,0 +1,3 @@
+In Python you can 函数
+In Python you can 类
+In Python you can 模块
