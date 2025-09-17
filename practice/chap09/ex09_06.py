@@ -40,6 +40,21 @@ class IceCreamStand(Restaurant):
         super().__init__(restaurant_name, cuisine_type)
         self.flavors = []
 
+    def show_icecream_flavors(self):
+        print("\n冰淇淋口味: ")
+        if self.flavors:
+            for flavor in self.flavors:
+                print("\t- " + flavor)
+        else:
+            print("\nSorry, out of service")
 
-ice_cream_stand = IceCreamStand("蜜雪冰城", "饮料")
-ice_cream_stand.describe_restaurant()
+# 模块测试代码
+if __name__ == "__main__":
+    # 仅用于测试和演示
+    ice_cream_stand = IceCreamStand("蜜雪冰城", "饮料")
+    ice_cream_stand.describe_restaurant()
+    ice_cream_stand.show_icecream_flavors()
+    ice_cream_stand.flavors.append("apple")
+    ice_cream_stand.flavors.append("banana")
+    ice_cream_stand.flavors.append("lemon")
+    ice_cream_stand.show_icecream_flavors()

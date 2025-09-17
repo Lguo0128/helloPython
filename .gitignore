@@ -1,0 +1,13 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.pyi
+
+# 其他常见的Python忽略项
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/

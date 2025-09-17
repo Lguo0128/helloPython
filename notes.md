@@ -293,38 +293,6 @@ greet_users(usernames)
 
 - 形参`**user_info`中的两个星号让Python创建一个名为`user_info`的空字典，并将收到的所有名称—值对都封装到这个字典中。在这个函数中，可以像访问其他字典那样访问`user_info`中的名称—值对。
 
-### 导入模块
-
-- 要让函数是可导入的，得先创建模块。模块是扩展名为.py的文件，包含要导入到程序中的代码。
-
-#### 导入整个模块
-
-- 只需编写一条`import`语句并在其中指定模块名，就可在程序中使用该模块中的所有函数。如果你使用这种`import`语句导入了名为`module_name.py`的整个模块，就可使用下面的语法来使用其中任何一个函数
-  - `module_name.function_name()`
-
-#### 导入特定的函数
-
-- 导入方法的语法如下：
-  - `from module_name import function_name`
-  - `from module_name import function_0, function_1, function_2`
-- 若使用这种语法，调用函数时就无需使用句点。由于我们在import语句中显式地导入了函数make_pizza()，因此调用它时只需指定其名称。
-
-#### 使用 as 给函数指定别名
-
-- 如果要导入的函数的名称可能与程序中现有的名称冲突，或者函数的名称太长，可指定简短而独一无二的别名——函数的另一个名称，类似于外号。
-  - `from module_name import function_name as fn`
-
-#### 使用 as 给模块指定别名
-
-- 通过给模块指定简短的别名（如给模块pizza指定别名p），让你能够更轻松地调用模块中的函数。
-  - `import module_name as mn`
-
-#### 导入模块中的所有函数
-
-- 使用星号（*）运算符可让Python导入模块中的所有函数.
-  - `from module_name import *`
-- 由于导入了每个函数，可通过名称来调用每个函数，而无需使用句点表示法。
-
 ### 函数编写指南
 
 - 应给函数指定描述性名称，且只在其中使用小写字母和下划线。描述性名称可帮助你和别人明白代码想要做什么。
@@ -386,3 +354,57 @@ class Dog():
 ### 将实例用作属性
 
 - 可以将大型类拆分成多个协同工作的小类。
+
+## 导入
+
+- Python允许你将类存储在模块中，然后在主程序中导入所需的模块。
+  
+### 导入模块
+
+- 要让函数是可导入的，得先创建模块。模块是扩展名为.py的文件，包含要导入到程序中的代码。
+
+#### 导入整个模块
+
+- 只需编写一条`import`语句并在其中指定模块名，就可在程序中使用该模块中的所有函数。如果你使用这种`import`语句导入了名为`module_name.py`的整个模块，就可使用下面的语法来使用其中任何一个函数
+  - `module_name.function_name()`
+
+#### 导入特定的函数
+
+- 导入方法的语法如下：
+  - `from module_name import function_name`
+  - `from module_name import function_0, function_1, function_2`
+- 若使用这种语法，调用函数时就无需使用句点。由于我们在import语句中显式地导入了函数make_pizza()，因此调用它时只需指定其名称。
+
+#### 使用 as 给函数指定别名
+
+- 如果要导入的函数的名称可能与程序中现有的名称冲突，或者函数的名称太长，可指定简短而独一无二的别名——函数的另一个名称，类似于外号。
+  - `from module_name import function_name as fn`
+
+#### 使用 as 给模块指定别名
+
+- 通过给模块指定简短的别名（如给模块pizza指定别名p），让你能够更轻松地调用模块中的函数。
+  - `import module_name as mn`
+
+#### 导入模块中的所有函数
+
+- 使用星号（*）运算符可让Python导入模块中的所有函数.
+  - `from module_name import *`
+- 由于导入了每个函数，可通过名称来调用每个函数，而无需使用句点表示法。
+
+#### 避免导入时执行某些代码：
+- 总是使用 `if __name__ == "__main__": `来保护模块中的执行代码
+``` python
+# 模块测试代码
+if __name__ == "__main__":
+    # 仅用于测试和演示
+```
+
+# Python标准库
+
+- Python标准库是一组模块，安装的Python都包含它。
+- 要创建字典并记录其中的键—值对的添加顺序，可使用模块collections中的OrderedDict类。
+
+``` python
+from collections import OrderedDict
+favorite_languages = OrderedDict()
+```
