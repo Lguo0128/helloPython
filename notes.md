@@ -482,7 +482,31 @@ for line in lines:
   with open(file_path) as file_object:
   ```
 
+  - 推荐方法
+    - 使用原始字符串（Raw strings） - 最常用的方法
+      - `path = r"C:\Users\Name\Documents\file.txt"`
+    - 使用正斜杠（Forward slashes） - Python 会自动转换
+      - `path = "C:/Users/Name/Documents/file.txt"`
+    - 使用双反斜杠 - 需要转义每个反斜杠
+      - `path = "C:\\Users\\Name\\Documents\\file.txt"`
+
+  - Python 的 os.path 和 pathlib 模块可以正确处理各种路径格式
+
+  ```python
+  import os
+  from pathlib import Path
+
+  # 使用 os.path 处理路径
+  path = os.path.join("C:", "Users", "Name", "Documents", "file.txt")
+
+  # 使用 pathlib（现代方法）
+  path = Path("C:/Users/Name/Documents/file.txt")
+  ```
+
 #### 分析文本
+- 方法`split()`：以空格为分隔符将字符串分拆成多个部分，并将这些部分都存储到一个列表中。
+- 方法`len()`：来确定这个列表的长度
+- Python有一个`pass`语句，可在代码块中使用它来让Python什么都不要做
 
 ### 异常
 
@@ -516,4 +540,5 @@ for line in lines:
 - `FileNotFoundError`
 
 ## 其他参考
-- 很多经典文学作品都是以简单文本文件的方式提供的，因为它们不受版权限制。本节使用的文本来自项目Gutenberg（http://gutenberg.org/），这个项目提供了一系列不受版权限制的文学作品，如果你要在编程项目中使用文学文本，这是一个很不错的资源。
+
+- 很多经典文学作品都是以简单文本文件的方式提供的，因为它们不受版权限制。本节使用的文本来自项目Gutenberg（<http://gutenberg.org/>），这个项目提供了一系列不受版权限制的文学作品，如果你要在编程项目中使用文学文本，这是一个很不错的资源。
