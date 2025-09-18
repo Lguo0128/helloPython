@@ -483,6 +483,7 @@ for line in lines:
   ```
 
   - 推荐方法
+
     - 使用原始字符串（Raw strings） - 最常用的方法
       - `path = r"C:\Users\Name\Documents\file.txt"`
     - 使用正斜杠（Forward slashes） - Python 会自动转换
@@ -504,9 +505,17 @@ for line in lines:
   ```
 
 #### 分析文本
+
 - 方法`split()`：以空格为分隔符将字符串分拆成多个部分，并将这些部分都存储到一个列表中。
 - 方法`len()`：来确定这个列表的长度
-- Python有一个`pass`语句，可在代码块中使用它来让Python什么都不要做
+- Python 有一个`pass`语句，可在代码块中使用它来让 Python 什么都不要做
+
+#### 存储数据 (序列化数据)
+
+- 函数`json.dump()`接受两个实参：要存储的`数据`以及可用于存储数据的`文件对象`。
+  - `json.dump(data,file_object)`
+- 函数`json.load()`传参`文件对象`
+  - `json.load(file_object)`
 
 ### 异常
 
@@ -538,7 +547,8 @@ for line in lines:
 
 - `ZeroDivisionError`
 - `FileNotFoundError`
+- `ValueError`
 
 ## 其他参考
 
-- 很多经典文学作品都是以简单文本文件的方式提供的，因为它们不受版权限制。本节使用的文本来自项目Gutenberg（<http://gutenberg.org/>），这个项目提供了一系列不受版权限制的文学作品，如果你要在编程项目中使用文学文本，这是一个很不错的资源。
+- 很多经典文学作品都是以简单文本文件的方式提供的，因为它们不受版权限制。本节使用的文本来自项目 Gutenberg（<http://gutenberg.org/>），这个项目提供了一系列不受版权限制的文学作品，如果你要在编程项目中使用文学文本，这是一个很不错的资源。

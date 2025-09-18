@@ -12,3 +12,15 @@
 # 次数，而不管其大小写格式如何。 
 # 编写一个程序，它读取你在项目 Gutenberg 中获取的文件，并计算单词'the'在每
 # 个文件中分别出现了多少次。
+
+file_path = "d:\\workspaces\\helloPython\\"
+file_name_1 = "pg23910_fengshenyanyi.txt"
+
+with open(file_path+file_name_1,"r",encoding="utf8") as file_object:
+    contents = file_object.read()
+
+# print(contents)
+print("紂王 出现次数 "+ str(contents.count("紂王")))
+print("姜子牙 出现次数 " + str(contents.count("姜子牙")))
+print("哪吒 出现次数 " + str(contents.count("哪吒")))
+print("李靖 出现次数 " + str(contents.count("李靖")))
