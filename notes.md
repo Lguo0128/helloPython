@@ -626,26 +626,83 @@ def run_game():
 run_game()
 ```
 
-- 简要说明：
-  - `pygame.init()`初始化背景设置，让 Pygame 能够正确地工作。
-  - 调用`pygame.display.set_mode()`来创建一个名为`screen`的显示窗口，这个游戏的所有图形元素都将在其中绘制。
-  - 在 Pygame 中，`surface` 是屏幕的一部分，用于显示游戏元素。
+| -模块-               | -说明-                           |
+| -------------------- | -------------------------------- |
+| `pygame._sdl2.touch` | 用于处理触摸输入                 |
+| `pygame.camera`      | 相机使用                         |
+| `pygame.cdrom`       | 音频 CD 控制                     |
+| `pygame.cursors`     | 光标资源                         |
+| `pygame.display`     | 控制显示窗口和屏幕               |
+| `pygame.draw`        | 绘制形状                         |
+| `pygame.event`       | 与事件和队列交互                 |
+| `pygame.examples`    | 示例程序模块                     |
+| `pygame.fastevent`   | 与多线程的事件和队列交互         |
+| `pygame.font`        | 加载和渲染字体                   |
+| `pygame.freetype`    | 加载和渲染计算机字体             |
+| `pygame.gfxdraw`     | 绘制形状                         |
+| `pygame.image`       | 图像传输                         |
+| `pygame.joystick`    | 与游戏杆、游戏手柄和轨迹球交互   |
+| `pygame.key`         | 与键盘交互                       |
+| `pygame.locals`      | pygame 常量                      |
+| `pygame.mask`        | 图像蒙版                         |
+| `pygame.math`        | 向量类                           |
+| `pygame.midi`        | 与 MIDI 输入输出交互             |
+| `pygame.mixer`       | 加载和播放声音                   |
+| `pygame.mixer.music` | 控制流式音频                     |
+| `pygame.mouse`       | 与鼠标一起工作                   |
+| `pygame.pixelcopy`   | 一般的像素数组复制               |
+| `pygame.scrap`       | 剪贴板支持                       |
+| `pygame.sndarray`    | 访问声音样本数据                 |
+| `pygame.sprite`      | 基本的游戏对象类                 |
+| `pygame.surfarray`   | 使用数组接口访问图像表面像素数据 |
+| `pygame.tests`       | 单元测试套件包                   |
+| `pygame.time`        | 监控时间                         |
+| `pygame.transform`   | 转换图面                         |
+
+#### 初始化 `pygame.init()`
+
+- 初始化背景设置，让 Pygame 能够正确地工作。
+
+#### 显示 `pygame.display`
+
+- 调用`pygame.display.set_mode()`来创建一个名为`screen`的显示窗口，这个游戏的所有图形元素都将在其中绘制。
+- 在 Pygame 中，`surface` 是屏幕的一部分，用于显示游戏元素。
   - `display.set_mode()`返回的 `surface` 表示整个游戏窗口。我们激活游戏的动画循环后，每经过一次循环都将自动重绘这个 `surface`。
-  - 为访问 Pygame 检测到的事件，我们使用方法`pygame.event.get()`。
-    - 例如，玩家单击游戏窗口的关闭按钮时，将检测到`pygame.QUIT`事件，而我们调用`sys.exit()`来退出游戏。
-  - 调用了`pygame.display.flip()`，命令 Pygame 让最近绘制的屏幕可见。
+- 调用了`pygame.display.flip()`，命令 Pygame 让最近绘制的屏幕可见。
   - 调用方法`screen.fill()`，用背景色填充屏幕
     - 这个方法只接受一个实参：一种颜色。
-  - 图像相关
-    - 调用`pygame.image.load()`加载图像，传参图像路径，返回一个`surface`
-    - 使用`get_rect()`获取相应`surface`的属性`rect`对象（矩形）
-      - 处理 rect 对象时，可使用矩形四角和中心的 x 和 y 坐标。可通过设置这些值来指定矩形的位置。
-      - 要将游戏元素居中，可设置相应 rect 对象的属性 center、centerx 或 centery。
-      - 要让游戏元素与屏幕边缘对齐，可使用属性 top、bottom、left 或 right；
-      - 要调整游戏元素的水平或垂直位置，可使用属性 x 和 y，它们分别是相应矩形左上角的 x 和 y 坐标。
-      - _注意：在 Pygame 中，原点(0, 0)位于屏幕左上角，向右下方移动时，坐标值将增大。在 1200×800 的屏幕上，原点位于左上角，而右下角的坐标为(1200, 800)。_
-    - 使用 Pygame 方法`blit()`绘制加载的图像，传参示例：`blit(self.image, self.rect))`
-  - 每当用户按键时，都将在 Pygame 中注册一个事件。事件都是通过方法`pygame.event.get()`获取的。每次按键都被注册为一个 KEYDOWN 事件。
+
+#### 事件交互 `pygame.event`
+
+- 为访问 Pygame 检测到的事件，我们使用方法`pygame.event.get()`。
+  - 例如，玩家单击游戏窗口的关闭按钮时，将检测到`pygame.QUIT`事件，而我们调用`sys.exit()`来退出游戏。
+- 每当用户按键时，都将在 Pygame 中注册一个事件。事件都是通过方法`pygame.event.get()`获取的。每次按键都被注册为一个 KEYDOWN 事件。
+
+#### 图像相关 `pygame.image`
+
+- 调用`pygame.image.load()`加载图像，传参图像路径，返回一个`surface`
+- 使用`get_rect()`获取相应`surface`的属性`rect`对象（矩形）
+  - 处理 rect 对象时，可使用矩形四角和中心的 x 和 y 坐标。可通过设置这些值来指定矩形的位置。
+  - 要将游戏元素居中，可设置相应 rect 对象的属性 center、centerx 或 centery。
+  - 要让游戏元素与屏幕边缘对齐，可使用属性 top、bottom、left 或 right；
+  - 要调整游戏元素的水平或垂直位置，可使用属性 x 和 y，它们分别是相应矩形左上角的 x 和 y 坐标。
+  - _注意：在 Pygame 中，原点(0, 0)位于屏幕左上角，向右下方移动时，坐标值将增大。在 1200×800 的屏幕上，原点位于左上角，而右下角的坐标为(1200, 800)。_
+- 使用 Pygame 方法`blit()`绘制加载的图像，传参示例：`blit(self.image, self.rect))`
+
+#### 游戏对象类 `pygame.sprite`
+
+- 通过使用`pygame.sprite`，可将游戏中相关的元素编组，进而同时操作编组中的所有元素。
+
+#### 绘制形状 `pygame.draw`
+
+| -说明-     | -方法-                                               |
+| ---------- | ---------------------------------------------------- |
+| 绘制矩形   | `rect(surface, color, rect)`                         |
+| 绘制多边形 | `polygon(surface, color, points)`                    |
+| 绘制圆形   | `circle(surface, color, center, radius)`             |
+| 绘制椭圆   | `ellipse(surface, color, rect)`                      |
+| 绘制椭圆弧 | `arc(surface, color, rect, start_angle, stop_angle)` |
+| 绘制直线   | `line(surface, color, start_pos, end_pos, width)`    |
 
 ## 其他参考
 

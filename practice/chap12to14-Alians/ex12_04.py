@@ -3,6 +3,7 @@
 # 如何响应。
 
 import sys
+
 import pygame
 
 
@@ -11,7 +12,6 @@ def check_keydown_events(event):
         print("Event: " + str(event))
         # print("Pressed Key: " + str(event.dict['unicode']))
         print("\tPressed Key: " + pygame.key.name(event.key))
-        
 
 
 def run():
