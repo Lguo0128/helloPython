@@ -25,13 +25,14 @@ class AlienInvasion:
         """Start the main loop for the game."""
 
         # 创建一艘飞船
-        ship = Ship(self.screen)
+        ship = Ship(self.settings,self.screen)
 
         # 开始游戏主循环
         while True:
             # Watch for keyboard and mouse events.
             # 监听键盘和鼠标事件
-            gf.check_events()
+            gf.check_events(ship)
+            ship.update()
             gf.update_screen(self.settings, self.screen, ship)
 
 

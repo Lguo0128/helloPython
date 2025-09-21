@@ -410,62 +410,6 @@ if __name__ == "__main__":
     # 仅用于测试和演示
 ```
 
-## Python 标准库
-
-- Python 标准库是一组模块，安装的 Python 都包含它。
-
-### 创建字典并记录其中的键—值对的添加顺序，可使用模块`collections`中的`OrderedDict`类
-
-```python
-from collections import OrderedDict
-favorite_languages = OrderedDict()
-```
-
-### 代码测试工具 `unittest`
-
-- `单元测试`用于核实函数的某个方面没有问题；
-- `测试用例`是一组单元测试，这些单元测试一起核实函数在各种情形下的行为都符合要求。
-- `全覆盖式测试用例`包含一整套单元测试，涵盖了各种可能的函数使用方式。
-
-- 要为函数编写测试用例，可先导入模块 unittest 以及要测试的函数，再创建一个继承 unittest.TestCase 的类，并编写一系列方法对函数行为的不同方面进行测试。
-
-```python
-import unittest
-from name_function import get_formatted_name
-
-class NamesTestCase(unittest.TestCase):
-    """测试name_function.py"""
-
-    def test_first_last_name(self):
-        """能够正确地处理像Janis Joplin这样的姓名吗？"""
-        formatted_name = get_formatted_name('janis', 'joplin')
-        self.assertEqual(formatted_name, 'Janis Joplin')
-
-    def test_first_last_middle_name(self):
-        """能够正确地处理像Wolfgang Amadeus Mozart这样的姓名吗？"""
-        formatted_name = get_formatted_name(
-            'wolfgang', 'mozart', 'amadeus')
-        self.assertEqual(formatted_name, 'Wolfgang Amadeus Mozart')
-
-unittest.main()
-```
-
-- 测试类必须继承 unittest.TestCase 类，这样 Python 才知道如何运行你编写的测试。
-- `断言方法`用来核实得到的结果是否与期望的结果一致。
-
-| 方 法                   | 用 途                  |
-| ----------------------- | ---------------------- |
-| assertEqual(a, b)       | 核实 a == b            |
-| assertNotEqual(a, b)    | 核实 a != b            |
-| assertTrue(x)           | 核实 x 为 True         |
-| assertFalse(x)          | 核实 x 为 False        |
-| assertIn(item, list)    | 核实 item 在 list 中   |
-| assertNotIn(item, list) | 核实 item 不在 list 中 |
-
-- 方法 `setUp()`
-  - 在 TestCase 类中包含了方法`setUp()`，Python 将先运行它，再运行各个以 test\_打头的方法。这样，在你编写的每个测试方法中都可使用在方法`setUp()`中创建的对象了。
-  - 可在`setUp()`方法中创建一系列实例并设置它们的属性，再在测试方法中直接使用这些实例。
-
 ## 文件与异常
 
 ### 文件读取
@@ -595,6 +539,113 @@ for line in lines:
 - `FileNotFoundError`
 - `ValueError`
 - `TypeError`
+
+## Python 标准库
+
+- Python 标准库是一组模块，安装的 Python 都包含它。
+
+### 创建字典并记录其中的键—值对的添加顺序，可使用模块`collections`中的`OrderedDict`类
+
+```python
+from collections import OrderedDict
+favorite_languages = OrderedDict()
+```
+
+### 代码测试工具 `unittest`
+
+- `单元测试`用于核实函数的某个方面没有问题；
+- `测试用例`是一组单元测试，这些单元测试一起核实函数在各种情形下的行为都符合要求。
+- `全覆盖式测试用例`包含一整套单元测试，涵盖了各种可能的函数使用方式。
+
+- 要为函数编写测试用例，可先导入模块 unittest 以及要测试的函数，再创建一个继承 unittest.TestCase 的类，并编写一系列方法对函数行为的不同方面进行测试。
+
+```python
+import unittest
+from name_function import get_formatted_name
+
+class NamesTestCase(unittest.TestCase):
+    """测试name_function.py"""
+
+    def test_first_last_name(self):
+        """能够正确地处理像Janis Joplin这样的姓名吗？"""
+        formatted_name = get_formatted_name('janis', 'joplin')
+        self.assertEqual(formatted_name, 'Janis Joplin')
+
+    def test_first_last_middle_name(self):
+        """能够正确地处理像Wolfgang Amadeus Mozart这样的姓名吗？"""
+        formatted_name = get_formatted_name(
+            'wolfgang', 'mozart', 'amadeus')
+        self.assertEqual(formatted_name, 'Wolfgang Amadeus Mozart')
+
+unittest.main()
+```
+
+- 测试类必须继承 unittest.TestCase 类，这样 Python 才知道如何运行你编写的测试。
+- `断言方法`用来核实得到的结果是否与期望的结果一致。
+
+| 方 法                   | 用 途                  |
+| ----------------------- | ---------------------- |
+| assertEqual(a, b)       | 核实 a == b            |
+| assertNotEqual(a, b)    | 核实 a != b            |
+| assertTrue(x)           | 核实 x 为 True         |
+| assertFalse(x)          | 核实 x 为 False        |
+| assertIn(item, list)    | 核实 item 在 list 中   |
+| assertNotIn(item, list) | 核实 item 不在 list 中 |
+
+- 方法 `setUp()`
+  - 在 TestCase 类中包含了方法`setUp()`，Python 将先运行它，再运行各个以 test\_打头的方法。这样，在你编写的每个测试方法中都可使用在方法`setUp()`中创建的对象了。
+  - 可在`setUp()`方法中创建一系列实例并设置它们的属性，再在测试方法中直接使用这些实例。
+
+### pygame
+
+- Pygame 是一个流行的 Python 库，用于开发视频游戏。 它是围绕 Simple DirectMedia Library (SDL) 的免费、开源和跨平台包装器。 Pygame 提供的 SDL 功能抽象使得使用 Python 开发多媒体应用程序变得非常容易。
+- w3schools 在线学习地址： <https://www.w3ccoo.com/pygame/pygame_overview.html>
+
+```python
+import sys
+
+import pygame
+
+def run_game():
+    # 初始化游戏并创建一个屏幕对象
+    pygame.init()
+    screen = pygame.display.set_mode((1200, 800))
+    pygame.display.set_caption("Alien Invasion")
+
+    # 开始游戏的主循环
+    while True:
+
+        # 监视键盘和鼠标事件
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+
+        # 让最近绘制的屏幕可见
+        pygame.display.flip()
+
+run_game()
+```
+
+- 简要说明：
+  - `pygame.init()`初始化背景设置，让 Pygame 能够正确地工作。
+  - 调用`pygame.display.set_mode()`来创建一个名为`screen`的显示窗口，这个游戏的所有图形元素都将在其中绘制。
+  - 在 Pygame 中，`surface` 是屏幕的一部分，用于显示游戏元素。
+  - `display.set_mode()`返回的 `surface` 表示整个游戏窗口。我们激活游戏的动画循环后，每经过一次循环都将自动重绘这个 `surface`。
+  - 为访问Pygame检测到的事件，我们使用方法`pygame.event.get()`。
+    - 例如，玩家单击游戏窗口的关闭按钮时，将检测到`pygame.QUIT`事件，而我们调用`sys.exit()`来退出游戏。
+  - 调用了`pygame.display.flip()`，命令Pygame让最近绘制的屏幕可见。
+  - 调用方法`screen.fill()`，用背景色填充屏幕
+    - 这个方法只接受一个实参：一种颜色。
+  - 图像相关
+    - 调用`pygame.image.load()`加载图像，传参图像路径，返回一个`surface`
+    - 使用`get_rect()`获取相应`surface`的属性`rect`对象（矩形）
+      - 处理rect对象时，可使用矩形四角和中心的x和y坐标。可通过设置这些值来指定矩形的位置。 
+      - 要将游戏元素居中，可设置相应rect对象的属性center、centerx或centery。
+      - 要让游戏元素与屏幕边缘对齐，可使用属性top、bottom、left或right；
+      - 要调整游戏元素的水平或垂直位置，可使用属性x和y，它们分别是相应矩形左上角的x和y坐标。
+      - *注意：在Pygame中，原点(0, 0)位于屏幕左上角，向右下方移动时，坐标值将增大。在1200×800的屏幕上，原点位于左上角，而右下角的坐标为(1200, 800)。*
+    - 使用Pygame方法`blit()`绘制加载的图像，传参示例：`blit(self.image, self.rect))`
+  - 每当用户按键时，都将在Pygame中注册一个事件。事件都是通过方法`pygame.event.get()`获取的。每次按键都被注册为一个KEYDOWN事件。
 
 ## 其他参考
 
