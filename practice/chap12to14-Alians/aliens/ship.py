@@ -1,6 +1,6 @@
 import pygame
 
-file_path = "d:\\workspaces\\helloPython\\practice\\chap12to14-Alians\\"
+file_path = "d:\\workspaces\\helloPython\\practice\\chap12to14-Alians\\aliens\\"
 
 
 class Ship:
