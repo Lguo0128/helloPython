@@ -413,12 +413,58 @@ if __name__ == "__main__":
 ## Python 标准库
 
 - Python 标准库是一组模块，安装的 Python 都包含它。
-- 要创建字典并记录其中的键—值对的添加顺序，可使用模块`collections`中的`OrderedDict`类。
+
+### 创建字典并记录其中的键—值对的添加顺序，可使用模块`collections`中的`OrderedDict`类
 
 ```python
 from collections import OrderedDict
 favorite_languages = OrderedDict()
 ```
+
+### 代码测试工具 `unittest`
+
+- `单元测试`用于核实函数的某个方面没有问题；
+- `测试用例`是一组单元测试，这些单元测试一起核实函数在各种情形下的行为都符合要求。
+- `全覆盖式测试用例`包含一整套单元测试，涵盖了各种可能的函数使用方式。
+
+- 要为函数编写测试用例，可先导入模块 unittest 以及要测试的函数，再创建一个继承 unittest.TestCase 的类，并编写一系列方法对函数行为的不同方面进行测试。
+
+```python
+import unittest
+from name_function import get_formatted_name
+
+class NamesTestCase(unittest.TestCase):
+    """测试name_function.py"""
+
+    def test_first_last_name(self):
+        """能够正确地处理像Janis Joplin这样的姓名吗？"""
+        formatted_name = get_formatted_name('janis', 'joplin')
+        self.assertEqual(formatted_name, 'Janis Joplin')
+
+    def test_first_last_middle_name(self):
+        """能够正确地处理像Wolfgang Amadeus Mozart这样的姓名吗？"""
+        formatted_name = get_formatted_name(
+            'wolfgang', 'mozart', 'amadeus')
+        self.assertEqual(formatted_name, 'Wolfgang Amadeus Mozart')
+
+unittest.main()
+```
+
+- 测试类必须继承 unittest.TestCase 类，这样 Python 才知道如何运行你编写的测试。
+- `断言方法`用来核实得到的结果是否与期望的结果一致。
+
+| 方 法                   | 用 途                  |
+| ----------------------- | ---------------------- |
+| assertEqual(a, b)       | 核实 a == b            |
+| assertNotEqual(a, b)    | 核实 a != b            |
+| assertTrue(x)           | 核实 x 为 True         |
+| assertFalse(x)          | 核实 x 为 False        |
+| assertIn(item, list)    | 核实 item 在 list 中   |
+| assertNotIn(item, list) | 核实 item 不在 list 中 |
+
+- 方法 `setUp()`
+  - 在 TestCase 类中包含了方法`setUp()`，Python 将先运行它，再运行各个以 test\_打头的方法。这样，在你编写的每个测试方法中都可使用在方法`setUp()`中创建的对象了。
+  - 可在`setUp()`方法中创建一系列实例并设置它们的属性，再在测试方法中直接使用这些实例。
 
 ## 文件与异常
 
@@ -548,7 +594,10 @@ for line in lines:
 - `ZeroDivisionError`
 - `FileNotFoundError`
 - `ValueError`
+- `TypeError`
 
 ## 其他参考
 
 - 很多经典文学作品都是以简单文本文件的方式提供的，因为它们不受版权限制。本节使用的文本来自项目 Gutenberg（<http://gutenberg.org/>），这个项目提供了一系列不受版权限制的文学作品，如果你要在编程项目中使用文学文本，这是一个很不错的资源。
+
+- 最安全、最不费钱的方式是使用http://pixabay.com/等网站提供的图形，这些图形无需许可，你可以对其进行修改。

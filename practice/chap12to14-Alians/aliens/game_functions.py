@@ -1,0 +1,20 @@
+import sys
+import pygame
+
+
+def check_events():
+    """响应按键和鼠标事件"""
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+
+
+def update_screen(ai_settings, screen, ship):
+    # Redraw the screen during each pass through the loop.
+    # 每次循环时都重绘屏幕
+    screen.fill(ai_settings.bg_color)
+    ship.blitme()
+
+    # Make the most recently drawn screen visible.
+    # 让最近绘制的屏幕可见
+    pygame.display.flip()
