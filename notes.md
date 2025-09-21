@@ -631,21 +631,21 @@ run_game()
   - 调用`pygame.display.set_mode()`来创建一个名为`screen`的显示窗口，这个游戏的所有图形元素都将在其中绘制。
   - 在 Pygame 中，`surface` 是屏幕的一部分，用于显示游戏元素。
   - `display.set_mode()`返回的 `surface` 表示整个游戏窗口。我们激活游戏的动画循环后，每经过一次循环都将自动重绘这个 `surface`。
-  - 为访问Pygame检测到的事件，我们使用方法`pygame.event.get()`。
+  - 为访问 Pygame 检测到的事件，我们使用方法`pygame.event.get()`。
     - 例如，玩家单击游戏窗口的关闭按钮时，将检测到`pygame.QUIT`事件，而我们调用`sys.exit()`来退出游戏。
-  - 调用了`pygame.display.flip()`，命令Pygame让最近绘制的屏幕可见。
+  - 调用了`pygame.display.flip()`，命令 Pygame 让最近绘制的屏幕可见。
   - 调用方法`screen.fill()`，用背景色填充屏幕
     - 这个方法只接受一个实参：一种颜色。
   - 图像相关
     - 调用`pygame.image.load()`加载图像，传参图像路径，返回一个`surface`
     - 使用`get_rect()`获取相应`surface`的属性`rect`对象（矩形）
-      - 处理rect对象时，可使用矩形四角和中心的x和y坐标。可通过设置这些值来指定矩形的位置。 
-      - 要将游戏元素居中，可设置相应rect对象的属性center、centerx或centery。
-      - 要让游戏元素与屏幕边缘对齐，可使用属性top、bottom、left或right；
-      - 要调整游戏元素的水平或垂直位置，可使用属性x和y，它们分别是相应矩形左上角的x和y坐标。
-      - *注意：在Pygame中，原点(0, 0)位于屏幕左上角，向右下方移动时，坐标值将增大。在1200×800的屏幕上，原点位于左上角，而右下角的坐标为(1200, 800)。*
-    - 使用Pygame方法`blit()`绘制加载的图像，传参示例：`blit(self.image, self.rect))`
-  - 每当用户按键时，都将在Pygame中注册一个事件。事件都是通过方法`pygame.event.get()`获取的。每次按键都被注册为一个KEYDOWN事件。
+      - 处理 rect 对象时，可使用矩形四角和中心的 x 和 y 坐标。可通过设置这些值来指定矩形的位置。
+      - 要将游戏元素居中，可设置相应 rect 对象的属性 center、centerx 或 centery。
+      - 要让游戏元素与屏幕边缘对齐，可使用属性 top、bottom、left 或 right；
+      - 要调整游戏元素的水平或垂直位置，可使用属性 x 和 y，它们分别是相应矩形左上角的 x 和 y 坐标。
+      - _注意：在 Pygame 中，原点(0, 0)位于屏幕左上角，向右下方移动时，坐标值将增大。在 1200×800 的屏幕上，原点位于左上角，而右下角的坐标为(1200, 800)。_
+    - 使用 Pygame 方法`blit()`绘制加载的图像，传参示例：`blit(self.image, self.rect))`
+  - 每当用户按键时，都将在 Pygame 中注册一个事件。事件都是通过方法`pygame.event.get()`获取的。每次按键都被注册为一个 KEYDOWN 事件。
 
 ## 其他参考
 
