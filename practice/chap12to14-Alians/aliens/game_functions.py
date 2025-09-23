@@ -15,9 +15,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
     elif event.key == pygame.K_DOWN:
         ship.moving_down = True
     elif event.key == pygame.K_SPACE:
-        # 创建一颗子弹，并将其加入到编组bullets中
-        new_bullet = Bullet(ai_settings, screen, ship)
-        bullets.add(new_bullet)
+        fire_bullet(ai_settings, screen, ship, bullets)
 
 
 def check_keyup_events(event, ship):
@@ -58,3 +56,24 @@ def update_screen(ai_settings, screen, ship, bullets):
     # Make the most recently drawn screen visible.
     # 让最近绘制的屏幕可见
     pygame.display.flip()
+
+
+def update_bullets(bullets):
+    """更新子弹的位置，并删除已消失的子弹"""
+    # 更新子弹的位置
+    bullets.update()
+
+    # 删除已消失的子弹
+    # 在for循环中，不应从列表或编组中删除条目，因此必须遍历编组的副本。我们使用了方法copy()来设置for循环
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
+    # print(len(bullets))
+
+
+def fire_bullet(ai_settings, screen, ship, bullets):
+    """如果还没有到达限制，就发射一颗子弹"""
+    if len(bullets) < ai_settings.bullets_allowed:
+        # 创建一颗子弹，并将其加入到编组bullets中
+        new_bullet = Bullet(ai_settings, screen, ship)
+        bullets.add(new_bullet)

@@ -36,7 +36,7 @@ class AlienInvasion:
             # 监听键盘和鼠标事件
             gf.check_events(self.settings, self.screen, ship, bullets)
             ship.update()
-            bullets.update()
+            gf.update_bullets(bullets)
             gf.update_screen(self.settings, self.screen, ship, bullets)
 
 
