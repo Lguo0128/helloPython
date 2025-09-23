@@ -1,10 +1,10 @@
 import sys
 
+import game_functions as gf
 import pygame
-
+from pygame.sprite import Group
 from settings import Settings
 from ship import Ship
-import game_functions as gf
 
 
 class AlienInvasion:
@@ -27,13 +27,17 @@ class AlienInvasion:
         # 创建一艘飞船
         ship = Ship(self.settings, self.screen)
 
+        # 创建一个用于存储子弹的编组
+        bullets = Group()
+
         # 开始游戏主循环
         while True:
             # Watch for keyboard and mouse events.
             # 监听键盘和鼠标事件
-            gf.check_events(ship)
+            gf.check_events(self.settings, self.screen, ship, bullets)
             ship.update()
-            gf.update_screen(self.settings, self.screen, ship)
+            bullets.update()
+            gf.update_screen(self.settings, self.screen, ship, bullets)
 
 
 if __name__ == "__main__":
