@@ -2,6 +2,7 @@ import sys
 
 import game_functions as gf
 import pygame
+from alien import Alien
 from pygame.sprite import Group
 from settings import Settings
 from ship import Ship
@@ -30,6 +31,9 @@ class AlienInvasion:
         # 创建一个用于存储子弹的编组
         bullets = Group()
 
+        # 创建一个外星人
+        alien = Alien(self.settings, self.screen)
+
         # 开始游戏主循环
         while True:
             # Watch for keyboard and mouse events.
@@ -37,7 +41,7 @@ class AlienInvasion:
             gf.check_events(self.settings, self.screen, ship, bullets)
             ship.update()
             gf.update_bullets(bullets)
-            gf.update_screen(self.settings, self.screen, ship, bullets)
+            gf.update_screen(self.settings, self.screen, ship, alien, bullets)
 
 
 if __name__ == "__main__":
