@@ -7,9 +7,9 @@
 # 3. 根据需求创建对象类
 
 import sys
-import pygame
-from pygame.sprite import Sprite
 
+import pygame
+from pygame.sprite import Group, Sprite
 
 filepath = "d:\\workspaces\\helloPython\\practice\\chap12to14-Alians\\aliens\\"
 
@@ -39,14 +39,13 @@ class Ship:
         self.screen = screen
         self.ai_settings = ai_settings
 
-        # 加载飞船图像并获取其外接矩形
-        self.image = pygame.image.load(file_path + "images\\ship.bmp")
+        # 加载飞船图像并获取其外接矩形
+        self.image = pygame.image.load(filepath + "images\\ship.bmp")
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 
-        # 将每艘新飞船放在屏幕底部中央
-        self.rect.centerx = self.screen_rect.centerx
-        self.rect.bottom = self.screen_rect.bottom
+        # 将每艘新飞船放在屏幕左中
+        self.rect.centery = self.screen_rect.centery
 
         # 在飞船的属性center中存储小数值
         self.centerx = float(self.rect.centerx)
@@ -96,24 +95,24 @@ class Bullet(Sprite):
             0, 0, ai_settings.bullet_width, ai_settings.bullet_height
         )
         # 我们将子弹的centerx设置为飞船的rect.centerx。
-        self.rect.centerx = ship.rect.centerx
+        self.rect.centery = ship.rect.centery
         # 子弹应从飞船顶部射出，因此我们将表示子弹的rect的top属性设置为飞船的rect的top属性，让子弹看起来像是从飞船中射出的。
-        self.rect.top = ship.rect.top
+        self.rect.right = ship.rect.right
 
         # 存储用小数表示的子弹位置
         # 我们将子弹的y坐标存储为小数值，以便能够微调子弹的速度。
-        self.y = float(self.rect.y)
+        self.x = float(self.rect.x)
 
         # 我们将子弹的颜色和速度设置分别存储到self.color和self.speed_factor中。
         self.color = ai_settings.bullet_color
         self.speed_factor = ai_settings.bullet_speed_factor
 
     def update(self):
-        """向上移动子弹"""
+        """向右移动子弹"""
         # 更新表示子弹位置的小数值
-        self.y -= self.speed_factor
+        self.x += self.speed_factor
         # 更新表示子弹的rect的位置
-        self.rect.y = self.y
+        self.rect.x = self.x
 
     def draw_bullet(self):
         """在屏幕上绘制子弹"""
@@ -123,11 +122,7 @@ class Bullet(Sprite):
 
 def check_keydown_events(event, ai_settings, screen, ship, bullets):
     """响应按键"""
-    if event.key == pygame.K_RIGHT:
-        ship.moving_right = True
-    elif event.key == pygame.K_LEFT:
-        ship.moving_left = True
-    elif event.key == pygame.K_UP:
+    if event.key == pygame.K_UP:
         ship.moving_up = True
     elif event.key == pygame.K_DOWN:
         ship.moving_down = True
@@ -137,11 +132,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
 
 def check_keyup_events(event, ship):
     """响应松开"""
-    if event.key == pygame.K_RIGHT:
-        ship.moving_right = False
-    elif event.key == pygame.K_LEFT:
-        ship.moving_left = False
-    elif event.key == pygame.K_UP:
+    if event.key == pygame.K_UP:
         ship.moving_up = False
     elif event.key == pygame.K_DOWN:
         ship.moving_down = False
@@ -175,7 +166,7 @@ def update_screen(ai_settings, screen, ship, bullets):
     pygame.display.flip()
 
 
-def update_bullets(bullets):
+def update_bullets(bullets, ai_settings):
     """更新子弹的位置，并删除已消失的子弹"""
     # 更新子弹的位置
     bullets.update()
@@ -183,7 +174,7 @@ def update_bullets(bullets):
     # 删除已消失的子弹
     # 在for循环中，不应从列表或编组中删除条目，因此必须遍历编组的副本。我们使用了方法copy()来设置for循环
     for bullet in bullets.copy():
-        if bullet.rect.bottom <= 0:
+        if bullet.rect.right > ai_settings.screen_width:
             bullets.remove(bullet)
     # print(len(bullets))
 
@@ -200,16 +191,21 @@ def run_game():
     """主窗口"""
     # 初始化
     pygame.init()
+    settings = Settings()
     # 设置窗口大小
-    screen = pygame.display.set_mode((800, 600))
+    screen = pygame.display.set_mode((settings.screen_width, settings.screen_height))
+    # 创建一艘飞船
+    ship = Ship(settings, screen)
+
+    # 创建一个用于存储子弹的编组
+    bullets = Group()
 
     # 主循环
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-
-        pygame.display.flip()
+        check_events(settings, screen, ship, bullets)
+        ship.update()
+        update_bullets(bullets, settings)
+        update_screen(settings, screen, ship, bullets)
 
 
 if __name__ == "__main__":
