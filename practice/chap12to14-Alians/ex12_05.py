@@ -166,7 +166,7 @@ def update_screen(ai_settings, screen, ship, bullets):
     pygame.display.flip()
 
 
-def update_bullets(bullets, ai_settings):
+def update_bullets(bullets):
     """更新子弹的位置，并删除已消失的子弹"""
     # 更新子弹的位置
     bullets.update()
@@ -174,7 +174,7 @@ def update_bullets(bullets, ai_settings):
     # 删除已消失的子弹
     # 在for循环中，不应从列表或编组中删除条目，因此必须遍历编组的副本。我们使用了方法copy()来设置for循环
     for bullet in bullets.copy():
-        if bullet.rect.right > ai_settings.screen_width:
+        if bullet.rect.right > bullet.screen.get_rect().right:
             bullets.remove(bullet)
     # print(len(bullets))
 
@@ -204,7 +204,7 @@ def run_game():
     while True:
         check_events(settings, screen, ship, bullets)
         ship.update()
-        update_bullets(bullets, settings)
+        update_bullets(bullets)
         update_screen(settings, screen, ship, bullets)
 
 
