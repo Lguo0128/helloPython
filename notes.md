@@ -712,7 +712,7 @@ run_game()
 - `plt.show()`打开 matplotlib 查看器，并显示绘制的图形。
 - `plt.savefig()`让程序自动将图表保存到文件。
   - `plt.savefig('squares_plot.png', bbox_inches='tight')`
-  - 第一个实参指定要以什么样的文件名保存图表，这个文件将存储到scatter_squares.py所在的目录中；
+  - 第一个实参指定要以什么样的文件名保存图表，这个文件将存储到 scatter_squares.py 所在的目录中；
   - 第二个实参指定将图表多余的空白区域裁剪掉。如果要保留图表周围多余的空白区域，可省略这个实参。
 - 当你向`plot()`提供一系列数字时，它假设第一个数据点对应的 x 坐标值为 0。为改变这种默认行为，我们可以给`plot()`同时提供输入值和输出值。
   - plot(input_value, output_value)
@@ -732,10 +732,16 @@ run_game()
 - 要求提供四个值：x 和 y 坐标轴的最小值和最大值。
 
 #### 随机漫步
+
 - `随机漫步`是这样行走得到的路径：每次行走都完全是随机的，没有明确的方向，结果是由一系列随机决策决定的。
+
+### Pygal 画廊
 
 ## 其他参考
 
 - 很多经典文学作品都是以简单文本文件的方式提供的，因为它们不受版权限制。本节使用的文本来自项目 Gutenberg（<http://gutenberg.org/>），这个项目提供了一系列不受版权限制的文学作品，如果你要在编程项目中使用文学文本，这是一个很不错的资源。
-
 - 最安全、最不费钱的方式是使用 <http://pixabay.com> 等网站提供的图形，这些图形无需许可，你可以对其进行修改。
+- 如果找不到与你安装的 Python 版本匹配的文件，请去<http://www.lfd.uci.edu/-gohlke/pythonlibs/#matplotlib>看看，这个网站发布安装程序的时间通常比 matplotlib 官网早些。
+- 要查看使用 matplotlib 可制作的各种图表，请访问<http://matplotlib.org/>的示例画廊。单击画廊中的图表，就可查看用于生成图表的代码。
+- 要了解 pyplot 中所有的颜色映射，请访问<http://matplotlib.org/>，单击 Examples，向下滚动到 Color Examples，再单击 colormaps_reference。
+- 要了解使用 Pygal 可创建什么样的图表，请查看图表类型画廊：访问<http://www.pygal.org/>，单击 Documentation，再单击 Chart types。每个示例都包含源代码，让你知道这些图表是如何生成的。
