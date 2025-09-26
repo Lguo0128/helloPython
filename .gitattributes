@@ -1,1 +1,25 @@
-* text=auto eol=lf
+# 核心设置：由Git自动判断文件类型（文本或二进制），并对文本文件进行换行符规范化:cite[4]:cite[7]
+* text=auto
+
+# 为明确的文本文件设置换行符为LF，确保跨平台一致性:cite[1]:cite[4]
+*.js text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.vue text eol=lf
+*.ts text eol=lf
+
+# 确保特定平台脚本在各自环境下使用正确的换行符:cite[4]:cite[5]
+*.sh eol=lf
+*.bat eol=crlf
+
+# 明确标记二进制文件，防止Git误修改:cite[4]
+*.png -text
+*.jpg -text
+*.jar -text
+*.pdf -text
+
+# 告诉GitHub在仓库语言统计中忽略指定文件或目录:cite[2]:cite[8]
+docs/* linguist-vendored
+*.min.js linguist-vendored
