@@ -1,7 +1,10 @@
-# 核心设置：由Git自动判断文件类型（文本或二进制），并对文本文件进行换行符规范化:cite[4]:cite[7]
+# 核心设置：由Git自动判断文件类型（文本或二进制），并对文本文件进行换行符规范化:
+# 采用git认为最好的方式来处理文件，未在.gitattributes中设置的项默认按照这种方式处理。
+# git发现是文本文件,那么在checkin的时候，会将文件结尾符转换为LF。
+# 如果文件已经被已CRLF的形式提交（就是说已经在Gti仓库中的文件，如果结束符是CRLF，不会有任何的转换），不会有任何转换。
 * text=auto
 
-# 为明确的文本文件设置换行符为LF，确保跨平台一致性:cite[1]:cite[4]
+# 为明确的文本文件设置换行符为LF，确保跨平台一致性:
 *.js text eol=lf
 *.css text eol=lf
 *.html text eol=lf
@@ -10,16 +13,16 @@
 *.vue text eol=lf
 *.ts text eol=lf
 
-# 确保特定平台脚本在各自环境下使用正确的换行符:cite[4]:cite[5]
+# 确保特定平台脚本在各自环境下使用正确的换行符:
 *.sh eol=lf
 *.bat eol=crlf
 
-# 明确标记二进制文件，防止Git误修改:cite[4]
+# 明确标记二进制文件，防止Git误修改:
 *.png -text
 *.jpg -text
 *.jar -text
 *.pdf -text
 
-# 告诉GitHub在仓库语言统计中忽略指定文件或目录:cite[2]:cite[8]
+# 告诉GitHub在仓库语言统计中忽略指定文件或目录:
 docs/* linguist-vendored
 *.min.js linguist-vendored
